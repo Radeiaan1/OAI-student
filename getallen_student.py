@@ -25,8 +25,19 @@ def floor(real):
 
     Returns:
         int: Het grootste gehele getal (int), dat kleiner dan of gelijk is aan het gegeven reeel getal.
+
+• Probleem: gegeven een reeel getal, bepaal de floor(het gehele getal)
+• Algoritme:
+1. ontvang reeel getal x
+2. bepaal waarde na decimaal met x%1
+3. als waarde 0 is dan gehele getal teruggeven
+4. als waarde groter is dan 0 dan waarde na decimaal aftrekken van gegeven reeel getal(x - (x%1))
+5. geef floor terug
     """
-    return 0
+    if real%1 ==0:
+        return int(real)
+    elif real%1 != 0:
+        return int(real - (real%1))
 
 
 def rekenkundige_rij(start, verschil, lengte):
@@ -40,9 +51,23 @@ def rekenkundige_rij(start, verschil, lengte):
 
     Returns:
         list of int: de rekenkundige rij
+
+• Probleem: gegeven het start getal, stapgrootte en aantal keer uitvoering.
+Geef een rij terug van aantal keer uitgevoerde stapgrootte met begingetal
+• Algoritme:
+1. ontvang beginwaarde, stapgrootte en aantal keer uitvoering
+2. start waarde appenden in rij
+3. aantal keer uitvoering in for loop met beginnend range 0
+4. beginwaarde steeds optellen met stapgrootte
+5. nieuwe waarde appenden(adden) in rij
+6. geef rij terug
     """
 
     rij = []
+    rij.append(start)
+    for i in range(1,lengte):
+        start += verschil
+        rij.append(start)
     return rij
 
 

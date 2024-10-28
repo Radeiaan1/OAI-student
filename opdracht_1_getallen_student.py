@@ -25,9 +25,9 @@ Let op! Het is niet toegestaan om bestaande modules te importeren en te
 """
 
 # TODO: Vul hier je naam, klas en studentnummer in.
-naam = ""
-klas = ""
-studentnummer = -1
+naam = "Radeiaan Nandoe"
+klas = "V1J"
+studentnummer = 1882206
 
 """
 1.  Pseudocode ceil
@@ -36,8 +36,15 @@ studentnummer = -1
     Schrijf je pseudocode keywords met alleen hoofdletters (ALS, VOOR, etc...).
     
 """
-#   TODO: [geef hier je antwoord]
-
+#   TODO:
+#    ONTVANG real
+#    BEREKEN int_real = vertaal real naar int / int(real)
+#    ALS real == int_real
+#    GEEF real terug
+#    ANDERS ALS real < 0 DAN
+#    GEEF int_real TERUG
+#    ANDERS
+#    GEEF int_real + 1
 """
 2. Implementatie ceil
     Implementeer onderstaande functie om naar boven af te ronden.
@@ -53,7 +60,14 @@ def ceil(real):
     Returns:
         int: Het kleinste gehele getal (int), groter dan of gelijk aan het gegeven reeele getal (float).
     """
-    return 0
+
+    int_real = int(real)
+    if int_real == real:
+        return int_real
+    elif real < 0:
+        return int_real
+    else:
+        return int_real + 1
 
 
 """
@@ -61,6 +75,14 @@ def ceil(real):
     Implementeer onderstaande functie om te bepalen of een geheel getal even is.
 
 """
+
+#   TODO:
+#       ONTVANG getal n
+#       ALS n herhaaldelijk gedeeld door 2 als antwoord 0 geeft is n even
+#       DUS ALS n%2 == 0, dan is n even
+#       ANDERS is n oneven
+
+
 def is_even(n):
     """
     Bepaal of een geheel getal even is.
@@ -71,7 +93,11 @@ def is_even(n):
     Returns:
         bool: True als even, False als oneven.
     """
-    return False
+    if n % 2 == 0:
+        return True
+    else:
+        return False
+
 
 
 """
@@ -79,6 +105,23 @@ def is_even(n):
     Implementeer onderstaande functie om te bepalen of een geheel getal oneven is.
 
 """
+
+#   TODO:
+#       ONTVANG getal n
+#       ALS n herhaaldelijk gedeeld door 2 als antwoord geen 0 geeft is n oneven
+#       DUS ALS n%2 != 0, dan is n oneven
+#       ANDERS is n even
+
+#       of
+
+#   TODO:
+#       ONTVANG getal n
+#       is_odd functie is inverse van is_even
+#       dus antwoord van is_even omdraaien
+#       m.a.w. is_odd = not is_even
+#       return is_odd / not is_even
+
+
 def is_odd(n):
     """
     Bepaal of een geheel getal oneven is.
@@ -89,7 +132,14 @@ def is_odd(n):
     Returns:
         bool: True als oneven, False als even.
     """
-    return False
+    # if n%2 != 0:
+    #     return True
+    # else:
+    #   return False
+    # even = is_even(n)
+    # odd = not even
+    # return odd
+    return not is_even(n)
 
 
 """
@@ -97,6 +147,21 @@ def is_odd(n):
     Implementeer onderstaande functie om af te ronden naar een geheel getal.
 
 """
+
+
+#   TODO:
+#       ONTVANG getal real
+#       bereken waarde achter comma m.b.v modulo
+#       DUS over = real%1
+#       ALS over groter & gelijk is aan 0.5
+#       DAN over aftrekken van real en 1 erbij optellen en toekennen aan variabele
+#       RETURN variabele als int
+#       DUS RETURN int(variabele)
+#       ANDERS over aftrekken van real en variabele toekennen
+#       DAN RETURN variabele als int
+#       DUS return int(variabele)
+
+
 def nround(real):
     """
     Bepaal het gehele getal (int) dat het dichtst bij het gegeven reeele getal (float) zit.
@@ -108,14 +173,34 @@ def nround(real):
         int: Het gehele getal (int) dat het dichtst bij het gegeven reeele getal (float) zit.
     """
 
-    return 0
+    over = real%1
+    if over >= 0.5:
+        numb = real - over + 1
+        return int(numb)
 
+    else:
+        numb = real - over
+        return int(numb)
 
 """
 6. Implementatie dec2bin rij
     Implementeer onderstaande functie om de binaire representatie van een decimaal getal te berekenen.
 
 """
+
+#   TODO:
+#       ONTVANG getal n
+#       ALS n gelijk is aan 0, GEEF TERUG (0,) want tuple(0) kan niet
+#       ANDERS lijst aanmaken
+#       ZOLANG n > 0
+#       REST bepalen met rest = n%2
+#       INT van REST maken
+#       OVER bepalen met over = int((n - rest) / 2)
+#       n overschrijven met OVER
+#       REST appenden to lijst
+#       lijst omkeren met lijst.reverse()
+#       TUPLE maken van omgekeerde lijst
+#       GEEF TUPLE TERUG van omgekeerde lijst
 
 def dec2bin(n):
     """
@@ -131,7 +216,7 @@ def dec2bin(n):
         >> dec2bin(0)
         (0,)
 
-        >> dec2bin(2)
+        >> dec2bin(2)☻
         (1, 0)
 
         >> dec2bin(3)
@@ -140,13 +225,35 @@ def dec2bin(n):
         >> dec2bin(16)
         (1, 0, 0, 0, 0)
     """
-    return (0,)
+
+
+    if n == 0:
+        return (0,)
+
+    else:
+        lst = []
+        while n > 0:
+            rest = int(n % 2)
+            over = int((n - rest) / 2)
+            n = over
+            lst.append(rest)
+            lst.reverse()
+        return tuple(lst)
 
 
 """
 7. Implementatie sqrt_heron
     Implementeer onderstaande functie om de vierkantswortel van een getal te berekenen.
 """
+
+#   TODO:
+#       ONTVANG POSITIEF GETAL n EN GETAL t
+#       RESULTAAT gelijkstellen aan n
+#       DUS resultaat = n
+#       ZOLANG VERSCHIL resultaat^2 EN n GROTER DAN t
+#       BEREKEN resultaat = (resultaat + n / resultaat) / 2
+#       GEEF resultaat TERUG
+
 
 def sqrt_heron(n, tolerantie = 0.00000001):
     """
@@ -168,7 +275,12 @@ def sqrt_heron(n, tolerantie = 0.00000001):
         float: De benaderde vierkantswortel
 
     """
-    return 0
+
+    resultaat = n
+    while resultaat**2 - n > tolerantie:
+        resultaat = (resultaat + n / resultaat) / 2
+
+    return resultaat
 
 
 """
@@ -190,8 +302,13 @@ def meetkundige_rij(start, factor, exponent):
         list of int: de meetkundige rij
     """
     rij = []
+    a_0 = start
+    r = factor
+    n = exponent
+    for i in range(0, n):
+        a_n = a_0 * r**i
+        rij.append(a_n)
     return rij
-
 
 
 """
